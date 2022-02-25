@@ -24,7 +24,6 @@ function App() {
       setTask("");
   }
 
-
   return (
     <div>
       <GlobalStyle />
@@ -34,7 +33,7 @@ function App() {
           <ButtonSend handleCreateTask={() => createTask()}/>
         </div>
         <div className='container-list'>
-          <ListTasks list={listTask}/>
+          <ListTasks list={listTask} updateTask={setListTasks}/>
         </div>
       </div>
     </div>

@@ -3,27 +3,18 @@ import { TTask } from '../../App'
 import { StyledTask } from './StyledTask'
 import Delete from '../../assets/images/delete.png'
 import Vector from '../../assets/images/vector.png' 
+import { StyledListTasks } from '../ListTasks/StyledListTasks'
 
 type TTaskComponent = {
-  item: TTask
+  item: TTask,
+  handleDelete: (id: number) => void
 }
 
-{
-/*
-const deleteTask = ({}) => {
-
-  const filterTasks = ({item}) => id !== item.id;
-
-  const listAtt = 
-}
-*/
-}
-
-const Task: React.FC<TTaskComponent> = ({item}) => {
+const Task: React.FC<TTaskComponent> = ({item, handleDelete}) => {
   return (
     <>
         <StyledTask>
-          <button className='delete-btn'>
+          <button className='delete-btn' onClick={(e) => handleDelete(item.id)}>
             <img src={Delete} alt="delete task" />
           </button>
             

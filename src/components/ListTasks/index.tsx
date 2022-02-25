@@ -4,15 +4,20 @@ import Task from '../Task'
 import { StyledListTasks } from './StyledListTasks'
 
 export type TList = {
-  list: TTask[]
+  list: TTask[],
+  updateTask: (tasks: TTask[]) => void,
 }
 
-const ListTasks: React.FC<TList> = ({list}) => {
+
+const ListTasks: React.FC<TList> = ({list, updateTask}) => {
+  
+  const deleteTask = (id: number) => updateTask(list.filter((item) => item.id !== id));
+
   return (
     <>
       <StyledListTasks>        
         {list&& list.map((item, index) => (
-          <Task key={index} item={item}/>
+          <Task key={index} item={item} handleDelete={deleteTask}/>
         ))}
       </StyledListTasks>
     </>
