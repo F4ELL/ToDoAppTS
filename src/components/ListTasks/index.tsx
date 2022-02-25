@@ -11,13 +11,28 @@ export type TList = {
 
 const ListTasks: React.FC<TList> = ({list, updateTask}) => {
   
+  // function delete
   const deleteTask = (id: number) => updateTask(list.filter((item) => item.id !== id));
+
+  // function complet
+  const completTask = (id: number) => {
+    const listCopy = [...list];
+
+    const index = list.findIndex((i) => i.id === id);
+    listCopy[index].isCompleted = true;
+
+    updateTask(listCopy);
+  }
 
   return (
     <>
-      <StyledListTasks>        
+      <StyledListTasks>       
         {list&& list.map((item, index) => (
-          <Task key={index} item={item} handleDelete={deleteTask}/>
+          <div key={item.id}>{
+            !item.isCompleted &&
+              <Task item={item} handleDelete={deleteTask} handleComplet={completTask}/>
+            }
+          </div>
         ))}
       </StyledListTasks>
     </>
