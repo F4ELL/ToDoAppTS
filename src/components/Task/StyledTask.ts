@@ -7,7 +7,7 @@ export const StyledTask = styled.li`
     text-transform: uppercase;
     color: #868686;
     margin-bottom: 20px;
-    position: relative;
+    position: relative;    
 
     .delete-btn{
         background-color: #FF5A5A;

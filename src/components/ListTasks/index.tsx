@@ -8,7 +8,6 @@ export type TList = {
   updateTask: (tasks: TTask[]) => void,
 }
 
-
 const ListTasks: React.FC<TList> = ({list, updateTask}) => {
   
   // function delete
